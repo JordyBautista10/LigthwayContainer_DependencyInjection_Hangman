@@ -11,12 +11,10 @@ public class PowerBonusScore implements GameScore{
     */
     
     @Override
-    public int calculateScore(int correctCount, int incorrectCount)throws ExceptionGameScore{
-        if (gameScore < 0){
-            throw new ExceptionGameScore(ExceptionGameScore.incorrectCountNegative);
-        }
+    public int calculateScore(int correctCount, int incorrectCount){
         gameScore += correctCount*5^(correctCount);
         gameScore -= incorrectCount*8;
+        gameScore = (gameScore < 0)? 0:gameScore;
         return gameScore;
     }
 }

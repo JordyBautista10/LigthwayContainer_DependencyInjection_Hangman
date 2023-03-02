@@ -3,7 +3,7 @@ package hangman.model;
 
 public class OriginalScore implements GameScore{
 
-    int gameScore;
+    int gameScore = 100;
 
     /* @pre  total points start at 100
      * @param correctCount and incorrectCount are the player's total hits and misses
@@ -11,8 +11,10 @@ public class OriginalScore implements GameScore{
      */
 
     @Override
-    public int calculateScore(int correctCount, int incorrectCount ){
+    public int calculateScore(int correctCount, int incorrectCount){
         gameScore -= incorrectCount*10;
+        gameScore = (gameScore < 0)? 0:gameScore;
+    
         return gameScore;
     }
 }
