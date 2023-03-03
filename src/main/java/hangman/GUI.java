@@ -43,6 +43,8 @@ public class GUI {
     private GameOverController gameoverController;
     private HighScoreController highScoreController;
 
+    private GameScore calculator;
+
     // Use Factory method
     public GUI(HangmanFactoryMethod factoryMethod) {
         this.language = factoryMethod.createLanguage();
@@ -52,10 +54,11 @@ public class GUI {
 
     @Inject
     // Use Guice constructor
-    public GUI(Language language, HangmanDictionary dictionary, HangmanPanel hangmanPanel){
+    public GUI(GameScore calculator, Language language, HangmanDictionary dictionary, HangmanPanel hangmanPanel){
         this.language = language;
         this.dictionary= dictionary;
         this.hangmanPanel = hangmanPanel;
+        this.calculator = calculator;
     }
 
     //method: setup
@@ -79,7 +82,7 @@ public class GUI {
                 mainFrameController
         );
 
-        GameModel gameModel = new GameModel(dictionary);
+        GameModel gameModel = new GameModel(calculator, dictionary);
         gameController = new GameController(
                 new GamePanel(gameModel.getCharacterSet(), hangmanPanel, language),
                 gameModel,
