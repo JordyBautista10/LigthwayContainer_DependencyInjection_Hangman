@@ -28,7 +28,7 @@ public class GameModel {
     private int[] lettersUsed;
     
     @Inject
-    private GameScore calculator = new BonusScore();
+    private GameScore calculator;
 
     private HangmanDictionary dictionary;
     
@@ -46,7 +46,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore = calculator.calculateScore(correctCount, incorrectCount);
     }
     
     //method: reset
@@ -56,7 +56,7 @@ public class GameModel {
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;
         correctCount = 0;
-        gameScore = 100;
+        gameScore = calculator.calculateScore(correctCount, incorrectCount);
     }
 
     //setDateTime

@@ -30,9 +30,11 @@ public class GUI {
     public static final String GAME_KEY = "gamescreen";
     public static final String GAME_OVER_KEY = "gameoverscreen";
 
+    /* Parameters created whit injection*/
     private Language language;
     private HangmanDictionary dictionary;
     private HangmanPanel hangmanPanel;
+    private GameScore calculator;
 
     private MainFrameController mainFrameController;
 
@@ -42,8 +44,6 @@ public class GUI {
     private CreditsController creditsController;
     private GameOverController gameoverController;
     private HighScoreController highScoreController;
-
-    private GameScore calculator;
 
     // Use Factory method
     public GUI(HangmanFactoryMethod factoryMethod) {
