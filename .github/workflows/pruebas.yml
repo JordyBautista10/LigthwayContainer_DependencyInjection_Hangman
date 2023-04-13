@@ -10,4 +10,5 @@ jobs:
       runs-on: windows-2019
       steps:
         - name: PruebaOriginalScore
-          run: cd src && make test
+          run: cd src && test && hangman && modelo && make GamesScoreTest;
+
