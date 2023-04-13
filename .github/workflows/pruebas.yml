@@ -1,0 +1,13 @@
+name: Pruebame
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    test:
+      runs-on: windows-2019
+      steps:
+        - name: PruebaOriginalScore
+          run: cd src && make test
