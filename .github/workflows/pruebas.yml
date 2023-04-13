@@ -10,5 +10,5 @@ jobs:
       runs-on: windows-2019
       steps:
         - name: PruebaOriginalScore
-          run: cd src/test/java/hangman/modelo && make GamesScoreTest;
+          run: cd src/test/java/hangman/modelo && make GamesScoreTest.java;
 
